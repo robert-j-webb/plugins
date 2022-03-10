@@ -33,7 +33,7 @@ List<Caption> _parseCaptionsFromWebVTTString(String file) {
   int captionNumber = 1;
   for (final List<String> captionLines in _readWebVTTFile(file)) {
     // CaptionLines represent a complete caption.
-    // E.g
+    // E.g.
     // [
     //  [00:00.000 --> 01:24.000 align:center]
     //  ['Introduction']
@@ -165,18 +165,18 @@ Duration? _parseWebVTTTimestamp(String timestampString) {
     return null;
   }
 
-  final List<String> milisecondsStyles = dotSections[1].split(' ');
+  final List<String> millisecondsStyles = dotSections[1].split(' ');
 
   // TODO(cyanglaz): Handle caption styles.
   // https://github.com/flutter/flutter/issues/90009.
   // ```dart
-  // if (milisecondsStyles.length > 1) {
-  //  List<String> styles = milisecondsStyles.sublist(1);
+  // if (millisecondsStyles.length > 1) {
+  //  List<String> styles = millisecondsStyles.sublist(1);
   // }
   // ```
   // For a better readable code style, style parsing should happen before
   // calling this method. See: https://github.com/flutter/plugins/pull/2878/files#r713381134.
-  final int milliseconds = int.parse(milisecondsStyles[0]);
+  final int milliseconds = int.parse(millisecondsStyles[0]);
 
   return Duration(
     hours: hours,
